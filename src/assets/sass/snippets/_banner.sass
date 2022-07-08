@@ -1,0 +1,28 @@
+﻿.main__banner--list
+	.slick-arrow
+		z-index: 1
+		&:before
+			content: ''
+	.slick-prev
+		left: 10px
+	.slick-next
+		right: 10px
+	.slick-dots
+		position: absolute
+		bottom: 24px
+		left: 50%
+		transform: translateX(-50%)
+		li
+			width: 16px
+			height: 16px
+			margin: 0 8px
+			border-radius: 50%
+			border: 2px solid $main-color
+			transition: all .2s ease-out
+			button
+				width: 100%
+				height: 100%
+				&:before
+					display: none
+			&.slick-active, &:hover
+				background-color: $main-color

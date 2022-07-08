@@ -1,0 +1,89 @@
+﻿.header
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08)
+	.d-flex
+		justify-content: space-between
+		align-items: center
+		padding: 24px 0
+
+	&__menu--mobile
+		display: none
+		@media (max-width: 768px)
+			display: inline-block
+			margin-right: 19px
+
+	&__logo
+		@media (max-width: 768px)
+			flex: 1
+
+	&__search
+		flex: 0 0 52%
+		&--mobile
+			display: none
+		.search__form
+			width: 100%
+			position: relative
+			#search
+				width: 100%
+				background-color: #EFEFEF
+				border-radius: 10px
+				font-size: 12px
+				font-weight: 400
+			.search__button
+				position: absolute
+				top: 0
+				right: 0
+				border-radius: 10px
+				font-size: 14px
+				font-weight: 400
+				color: #fff
+				width: 120px
+				height: 40px
+				background-color: $main-color
+		@media (max-width: 1300px)
+			flex: 0 0 45%
+		@media (max-width: 992px)
+			flex: 0 0 66%
+		@media (max-width: 768px)
+			display: none
+			&--mobile
+				display: inline-block
+				margin-right: 40px
+				width: 24px
+				height: 24px
+	
+
+
+	&__login
+		+display(flex)
+		align-items: center
+		&--account, &--favorite
+			+display(flex)
+			align-items: center
+			line-height: 1
+			svg
+				margin-right: 8px
+		&--account
+			margin-right: 40px
+		@media (max-width: 1300px)
+			&--account
+				margin-right: 10px
+		@media (max-width: 992px)
+			display: none
+
+	
+	&__cart--box
+		.cart__link
+			+display(flex)
+			align-items: center
+			font-size: 14px
+			font-weight: 400
+			color: $sec-color
+			svg
+				margin-right: 8px
+		@media (min-width: 993px)
+			border: 1px solid #FAA500
+			padding: 12px 14px 13px 17px
+			border-radius: 8px
+		@media (max-width: 992px)
+			.cart__title
+				display: none

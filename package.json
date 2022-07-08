@@ -9,7 +9,9 @@
     "concurrently": "^5.0.2",
     "gulp-minify": "^3.1.0",
     "gulp-rename": "^1.4.0",
-    "gulp-stylus": "^2.7.0"
+    "gulp-sass": "^5.1.0",
+    "gulp-stylus": "^2.7.0",
+    "sass": "^1.53.0"
   },
   "devDependencies": {
     "babel-install": "2.1.0",

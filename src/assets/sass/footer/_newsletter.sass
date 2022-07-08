@@ -1,0 +1,68 @@
+﻿.newsletter
+	background-color: #FAFAFA
+	border-top: 2px solid #efefef
+	border-bottom: 2px solid #efefef
+	&__container
+		max-width: 1012px
+		margin: 0 auto
+		padding: 0 31px
+	&__wrap
+		align-items: center
+		justify-content: space-between
+		flex-wrap: wrap
+		padding: 40px 0
+		@media (max-width: 992px)
+			justify-content: center
+			padding: 24px 0
+
+
+	&__title
+		flex: 0 0 32%
+		color: #000
+		font-weight: 700
+		font-size: 24px
+		@media (max-width: 992px)
+			flex: 0 0 100%
+			line-height: 36px
+	&__box
+		position: relative
+		flex: 0 0 68%
+		@media (max-width: 992px)
+			flex: 0 0 100%
+			+display(flex)
+			align-items: center
+			margin-top: 8px
+
+
+	&__input
+		width: 100%
+		border: 1px solid $sec-color
+		border-radius: 4px
+		font-size: 14px
+		font-weight: 400
+		padding-left: 24px
+		color: $sec-color
+		@media (max-width: 992px)
+			width: 204px
+			height: 26px
+			margin-right: 15px
+
+	&__button
+		+display(flex)
+		align-items: center
+		justify-content: center
+		width: 131px
+		height: 40px
+		background-color: $main-color
+		border-radius: 4px
+		font-weight: 700
+		font-size: 16px
+		color: #fff
+		@media (min-width: 992px)
+			position: absolute
+			top: 0
+			right: 0
+		@media (max-width: 992px)
+			width: 79px
+			height: 26px
+			font-size: 14px

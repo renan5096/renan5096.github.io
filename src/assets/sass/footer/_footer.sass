@@ -1,0 +1,47 @@
+﻿.footer
+	&__wrap
+		justify-content: space-between
+		@media (max-width: 600px)
+			flex-wrap: wrap
+			padding: 40px 0
+	&__container
+		max-width: 1012px
+		margin: 0 auto
+		padding: 0 31px
+
+	.col-xs-12
+		@media (max-width: 600px)
+			padding: 17px 0
+
+	&__title
+		font-size: 16px
+		font-weight: 700
+		color: $sec-color
+		line-height: 1
+		margin-top: 43px
+		@media (max-width: 600px)
+			margin-top: 0
+			+display(flex)
+			align-items: center
+			justify-content: space-between
+			cursor: pointer
+			&:after
+				content: "+"
+
+			&.active
+				&:after
+					content: "-"
+	&__box
+		nav
+			+display(flex)
+			flex-direction: column
+
+			li
+				display: block
+				font-size: 12px
+				font-weight: 400
+				color: #000
+				margin: 12px 0
+				line-height: 1
+		@media (max-width: 600px)
+			display: none

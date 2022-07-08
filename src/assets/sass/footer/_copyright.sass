@@ -1,0 +1,31 @@
+﻿.copyright
+	background-color: $sec-color
+	padding: 24px 0 35px
+	&__box
+		justify-content: space-between
+		align-items: center
+		@media (max-width: 992px)
+			flex-wrap: wrap
+			justify-content: center
+	> div
+		flex: 0 0 33.3%
+		@media (max-width: 992px)
+			flex: 0 0 100%
+	
+	&__nav
+		+display(flex)
+		align-items: center
+		justify-content: center
+		li
+			margin: 0 12px
+			line-height: 1
+			&:first-child
+				margin-left: 0
+		h3
+			font-size: 10px
+			font-weight: 400
+			color: #fff
+			line-height: 1
+			margin-bottom: 10px
+		@media (max-width: 992px)
+			margin: 12px 0

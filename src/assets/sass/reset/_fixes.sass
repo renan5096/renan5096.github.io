@@ -1,0 +1,55 @@
+﻿/*---------------------------------------------------------
+
+	FIXES
+
+	-------------------------------------------------------*/
+
+/*--------------------------------------
+	Grid
+	------------------------------------*/
+.row
+	margin: 0 (-$padding)
+	@media (max-width: 450px)
+		margin-left: -5px
+		margin-right: -5px
+
+[class*="col-"]
+	vertical-align: top
+	display: inline-block
+	padding: 0 $padding
+	@media (max-width: 450px)
+		padding-left: 5px
+		padding-right: 5px
+
+/* ========================================
+	Col and Viewport sizes
+	======================================== */
+@each $prefix, $size-value, $column-number, $pos in $sizes
+	@if ($pos == last)
+		@for $aux from 1 through $column-number
+			.#{$prefix}-#{$aux}
+				width: calc(100%/$column-number*$aux)
+	@else
+		@media screen and (min-width: $size-value)
+			@for $aux from 1 through $column-number
+				.#{$prefix}-#{$aux}
+					width: calc(100%/$column-number*$aux)
+
+/*--------------------------------------
+	Bootstrap
+	------------------------------------*/
+.container
+	display: block
+	width: 100%
+	max-width: $grid-df
+	margin: 0 auto
+	padding: 0 $padding
+
+/*--------------------------------------
+	Essencial
+	------------------------------------*/
+.d-flex
+	+display(flex)
+
+.flex-wrap
+	flex-wrap: wrap

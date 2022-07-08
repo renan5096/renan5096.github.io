@@ -63,7 +63,10 @@ img
     max-width: 100%
     height: auto
 
-ul
+input, textarea, button, select, .i-selected
+    font-family: 'Titillium Web', sans-serif
+
+ul, nav
     list-style: none
     margin: 0
     padding: 0
@@ -71,21 +74,8 @@ ul
 input, textarea, button, select
     outline: none
     box-shadow: none
-
-.banner-js
-    margin: 0
+    border: none
 
 main, footer
     max-width: 100%
     overflow: hidden
-
-.main
-    background: #FAFAFA
-    &__container
-        max-width: 1600px
-        margin: 0 auto
-
-@media screen and (max-width: 1600px)
-    .main
-        &__container
-            margin: 0 30px

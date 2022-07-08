@@ -1,0 +1,24 @@
+﻿.menu
+	&__box
+		justify-content: space-between
+		align-items: center
+		padding: 13px 0 14px
+	&__item
+		a
+			+display(flex)
+			align-items: center
+			font-size: 14px
+			font-weight: 400
+			color: $sec-color
+			cursor: pointer
+			transition: all .3s
+			svg
+				margin-right: 9px
+			&:hover
+				color: $main-color
+				font-weight: 700
+	&__container
+		max-width: 1112px
+		margin: 0 auto
+	@media (max-width: 768px)
+		display: none

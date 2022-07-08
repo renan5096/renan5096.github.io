@@ -1,50 +1,49 @@
-var { watch, src, dest, parallel, series } = require("gulp"),
-    stylus = require("gulp-stylus"),
-    autoprefixer = require("autoprefixer-stylus"),
-    jsImport = require("gulp-js-import"),
-    minify = require("gulp-minify"),
-    rename = require("gulp-rename"),
-    concat = require("gulp-concat"),
-    cleanCSS = require("gulp-clean-css")
+"use strict";
 
+// Load plugins
+const gulp = require("gulp");
+const concat = require('gulp-concat');
+const sass =  require('gulp-sass')(require('sass'));
+const uglify = require("gulp-uglify");
+const babel = require('gulp-babel');
+
+// CSS task
 function css() {
-    return src("src/**/*.styl")
-        .pipe(
-            stylus({
-                "include css": true,
-                use: [autoprefixer("iOS >= 7", "last 1 Chrome version")],
-                compress: true,
-                linenos: false,
-                import: __dirname + "/src/assets/settings.styl"
-            })
-        )
-        .pipe(rename("app.min.css"))
-        .pipe(concat("app.min.css"))
-        .pipe(dest("public/css"))
+  return gulp
+    .src('./src/assets/**/*.sass')
+    .pipe(sass({
+      outputStyle: "compressed"
+    }))
+    .pipe(concat('styles.css'))
+    .pipe(gulp.dest('./deploy'))
 }
 
-function js() {
-    return src("src/**/*.js", { sourcemaps: false })
-        .pipe(jsImport({ hideConsole: true }))
-        .pipe(concat("app.js"))
-        .pipe(
-            minify({
-                ext: {
-                    src: ".js",
-                    min: ".min.js"
-                },
-                exclude: ["tasks"],
-                ignoreFiles: [".combo.js", "-min.js"]
-            })
-        )
-        .pipe(dest("public/js", { sourcemaps: false }))
+// Transpile, concatenate and minify scripts
+function scripts() {
+  return (
+    gulp.src(['./src/assets/**/*.js'])
+      .pipe(babel({
+        presets: ['@babel/env']
+      }))
+      .pipe(uglify())
+      .pipe(concat('styles.js'))
+      .pipe(gulp.dest('./deploy'))
+  );
 }
 
-exports.js = js
-exports.css = css
-
-exports.init = series(css, js)
-exports.default = function() {
-    watch("src/**/*.styl", series(css))
-    watch("src/**/*.js", series(js))
+// Watch files
+function watchFiles() {
+  gulp.watch('./src/assets/**/*.sass', css);
+  gulp.watch('./src/assets/**/*.js', gulp.series(scripts));
 }
+
+// define complex tasks
+const js = gulp.series(scripts);
+const build = gulp.series(gulp.parallel(css, js));
+const watch = gulp.parallel(watchFiles);
+
+// export tasks
+exports.css = css;
+exports.js = js;
+exports.watch = watch;
+exports.default = build;
